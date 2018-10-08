@@ -1,0 +1,44 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+*.xccheckout
+
+# Certificates
+*.cer
+*.certSigningRequest
+*.p12
+*.mobileprovision
+
+# Builds
+*.dSYM.zip
+*.ipa
+
+*.xcworkspace
+!default.xcworkspace
+
+# AppCode
+.idea/
+
+Pods/
+
+# Fastlane
+Preview.html
+/fastlane/README.md
+/fastlane/report.xml
+/fastlane/screenshots/screenshots.html
+/fastlane/screenshots/*/*.png
