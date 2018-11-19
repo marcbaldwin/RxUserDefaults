@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RxUserDefaults"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.license      = "MIT"
   s.summary      = "Rx for UserDefaults"
   s.homepage     = "https://github.com/marcbaldwin/RxUserDefaults"
@@ -9,11 +9,7 @@ Pod::Spec.new do |s|
   s.source_files = "RxUserDefaults/*.swift"
   s.platform     = :ios, '8.0'
   s.requires_arc = true
-  s.default_subspec = "Core"
-
-  s.subspec "Core" do |ss|
-    ss.framework  = "Foundation"
-    ss.dependency "RxSwift", '~> 4.0'
-  end
+  s.frameworks   = "Foundation"
+  s.dependency 'RxSwift', '~> 4.0'
 
 end
