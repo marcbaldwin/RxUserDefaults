@@ -48,6 +48,7 @@ public final class Default<T>: ReactiveCompatible {
     }
 
     public func resetToDefault() {
-        value = defaultValue
+        userDefaults.removeObject(forKey: key)
+        subject.onNext(defaultValue)
     }
 }
