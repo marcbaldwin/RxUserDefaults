@@ -9,19 +9,23 @@ public final class Default<T>: ReactiveCompatible {
 
     public var value: T {
         get {
-            return try! variable.value()
+            return try! subject.value()
         }
         set {
-            variable.onNext(newValue)
+            subject.onNext(newValue)
             setter(userDefaults, key, newValue)
         }
+    }
+
+    public var hasValue: Bool {
+        return userDefaults.object(forKey: key) != nil
     }
 
     private let userDefaults: UserDefaults
     private let getter: Getter
     private let setter: Setter
     private let defaultValue: T
-    fileprivate let variable: BehaviorSubject<T>
+    private let subject: BehaviorSubject<T>
 
     public init(
         key: String,
@@ -34,13 +38,13 @@ public final class Default<T>: ReactiveCompatible {
         self.getter = getter
         self.setter = setter
         self.defaultValue = defaultValue
-        self.variable = BehaviorSubject(value:
+        self.subject = BehaviorSubject(value:
             userDefaults.object(forKey: key) != nil ? getter(userDefaults, key) : defaultValue
         )
     }
 
     public func asObservable() -> Observable<T> {
-        return variable.asObservable()
+        return subject.asObservable()
     }
 
     public func resetToDefault() {
