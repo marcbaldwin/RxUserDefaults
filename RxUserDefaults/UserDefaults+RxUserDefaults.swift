@@ -46,6 +46,18 @@ extension UserDefaults {
         )
     }
 
+    public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> Int, decode: @escaping (Int) -> T) -> Default<T> {
+        return Default(
+            key: key, defaultValue: defaultValue, userDefaults: self,
+            getter: { userDefaults, key in
+                decode(userDefaults.integer(forKey: key))
+            },
+            setter: { userDefaults, key, value in
+                userDefaults.set(encode(value), forKey: key)
+            }
+        )
+    }
+
     public func type<T>(key: String, defaultValue: T?, encode: @escaping (T?) -> String?, decode: @escaping (String?) -> T?) -> Default<T?> {
         return Default(
             key: key, defaultValue: defaultValue, userDefaults: self,
