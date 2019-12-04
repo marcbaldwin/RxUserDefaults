@@ -1,13 +1,11 @@
 import RxSwift
 
-public final class Default<T>: ReactiveCompatible {
+public final class UserDefault<T>: Default<T> {
 
     public typealias Getter = (UserDefaults, String) -> T
     public typealias Setter = (UserDefaults, String, T) -> Void
 
-    public let key: String
-
-    public var value: T {
+    override public var value: T {
         get {
             return try! subject.value()
         }
@@ -17,7 +15,7 @@ public final class Default<T>: ReactiveCompatible {
         }
     }
 
-    public var hasValue: Bool {
+    override public var hasValue: Bool {
         return userDefaults.object(forKey: key) != nil
     }
 
@@ -32,8 +30,8 @@ public final class Default<T>: ReactiveCompatible {
         defaultValue: T,
         userDefaults: UserDefaults = UserDefaults.standard,
         getter: @escaping Getter,
-        setter: @escaping Setter) {
-        self.key = key
+        setter: @escaping Setter
+    ) {
         self.userDefaults = userDefaults
         self.getter = getter
         self.setter = setter
@@ -41,13 +39,14 @@ public final class Default<T>: ReactiveCompatible {
         self.subject = BehaviorSubject(value:
             userDefaults.object(forKey: key) != nil ? getter(userDefaults, key) : defaultValue
         )
+        super.init(key: key)
     }
 
-    public func asObservable() -> Observable<T> {
+    override public func asObservable() -> Observable<T> {
         return subject.asObservable()
     }
 
-    public func resetToDefault() {
+    override public func resetToDefault() {
         userDefaults.removeObject(forKey: key)
         subject.onNext(defaultValue)
     }

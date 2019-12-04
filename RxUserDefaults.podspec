@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.frameworks   = "Foundation"
-  s.dependency 'RxSwift', '~> 4.0'
+  s.dependency     'RxSwift', '~> 4.5'
 end

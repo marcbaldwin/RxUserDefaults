@@ -11,8 +11,10 @@
 		493296FB216B243000DA7514 /* RxUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493296F1216B243000DA7514 /* RxUserDefaults.framework */; };
 		49329700216B243000DA7514 /* RxUserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493296FF216B243000DA7514 /* RxUserDefaultsTests.swift */; };
 		49329702216B243000DA7514 /* RxUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 493296F4216B243000DA7514 /* RxUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4932970C216B248D00DA7514 /* RxUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932970B216B248D00DA7514 /* RxUserDefault.swift */; };
+		4932970C216B248D00DA7514 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932970B216B248D00DA7514 /* UserDefault.swift */; };
 		4932970E216B268C00DA7514 /* UserDefaults+RxUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932970D216B268C00DA7514 /* UserDefaults+RxUserDefaults.swift */; };
+		498BC1A32397F8BC00B13C2C /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BC1A22397F8BC00B13C2C /* Default.swift */; };
+		498BC1A52397FC8400B13C2C /* StubDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BC1A42397FC8400B13C2C /* StubDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +35,10 @@
 		493296FA216B243000DA7514 /* RxUserDefaultsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxUserDefaultsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		493296FF216B243000DA7514 /* RxUserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUserDefaultsTests.swift; sourceTree = "<group>"; };
 		49329701216B243000DA7514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4932970B216B248D00DA7514 /* RxUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUserDefault.swift; sourceTree = "<group>"; };
+		4932970B216B248D00DA7514 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		4932970D216B268C00DA7514 /* UserDefaults+RxUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+RxUserDefaults.swift"; sourceTree = "<group>"; };
+		498BC1A22397F8BC00B13C2C /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
+		498BC1A42397FC8400B13C2C /* StubDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDefault.swift; sourceTree = "<group>"; };
 		4C70C8C9DE7E3EF466252264 /* Pods-RxUserDefaults.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxUserDefaults.release.xcconfig"; path = "Target Support Files/Pods-RxUserDefaults/Pods-RxUserDefaults.release.xcconfig"; sourceTree = "<group>"; };
 		CD4879326BBBC6EA6ADD0693 /* Pods_RxUserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxUserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,8 +88,10 @@
 			children = (
 				493296F4216B243000DA7514 /* RxUserDefaults.h */,
 				493296F5216B243000DA7514 /* Info.plist */,
-				4932970B216B248D00DA7514 /* RxUserDefault.swift */,
+				498BC1A22397F8BC00B13C2C /* Default.swift */,
+				4932970B216B248D00DA7514 /* UserDefault.swift */,
 				4932970D216B268C00DA7514 /* UserDefaults+RxUserDefaults.swift */,
+				498BC1A42397FC8400B13C2C /* StubDefault.swift */,
 			);
 			path = RxUserDefaults;
 			sourceTree = "<group>";
@@ -253,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4932970C216B248D00DA7514 /* RxUserDefault.swift in Sources */,
+				4932970C216B248D00DA7514 /* UserDefault.swift in Sources */,
+				498BC1A32397F8BC00B13C2C /* Default.swift in Sources */,
 				4932970E216B268C00DA7514 /* UserDefaults+RxUserDefaults.swift in Sources */,
+				498BC1A52397FC8400B13C2C /* StubDefault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
