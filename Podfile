@@ -1,7 +1,7 @@
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
-#inhibit_all_warnings!
+inhibit_all_warnings!
 
 target 'RxUserDefaults' do
-  pod 'RxSwift', '4.5.0'
+  pod 'RxSwift', '~> 5'
 end
