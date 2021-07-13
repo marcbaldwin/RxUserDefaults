@@ -3,5 +3,5 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'RxUserDefaults' do
-  pod 'RxSwift', '~> 5'
+  pod 'RxSwift', '~> 6'
 end
