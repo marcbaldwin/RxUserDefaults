@@ -1,6 +1,6 @@
 extension UserDefaults {
 
-    public func bool(key: String, defaultValue: Bool) -> Default<Bool> {
+    public func bool(key: String, defaultValue: Bool) -> UserDefault<Bool> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in userDefaults.bool(forKey: key) },
@@ -8,7 +8,7 @@ extension UserDefaults {
         )
     }
 
-    public func double(key: String, defaultValue: Double) -> Default<Double> {
+    public func double(key: String, defaultValue: Double) -> UserDefault<Double> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in userDefaults.double(forKey: key) },
@@ -16,7 +16,7 @@ extension UserDefaults {
         )
     }
 
-    public func int(key: String, defaultValue: Int) -> Default<Int> {
+    public func int(key: String, defaultValue: Int) -> UserDefault<Int> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in userDefaults.integer(forKey: key) },
@@ -24,7 +24,7 @@ extension UserDefaults {
         )
     }
 
-    public func string(key: String, defaultValue: String?) -> Default<String?> {
+    public func string(key: String, defaultValue: String?) -> UserDefault<String?> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in userDefaults.string(forKey: key) },
@@ -32,7 +32,7 @@ extension UserDefaults {
         )
     }
 
-    public func date(key: String, defaultValue: Date?) -> Default<Date?> {
+    public func date(key: String, defaultValue: Date?) -> UserDefault<Date?> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in userDefaults.object(forKey: key) as? Date },
@@ -40,7 +40,7 @@ extension UserDefaults {
         )
     }
 
-    public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> String, decode: @escaping (String) -> T) -> Default<T> {
+	public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> String, decode: @escaping (String) -> T) -> UserDefault<T> where T: Equatable {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in
@@ -52,7 +52,7 @@ extension UserDefaults {
         )
     }
 
-    public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> Int, decode: @escaping (Int) -> T) -> Default<T> {
+    public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> Int, decode: @escaping (Int) -> T) -> UserDefault<T> where T: Equatable {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in
@@ -64,7 +64,7 @@ extension UserDefaults {
         )
     }
 
-    public func type<T>(key: String, defaultValue: T?, encode: @escaping (T?) -> String?, decode: @escaping (String?) -> T?) -> Default<T?> {
+    public func type<T>(key: String, defaultValue: T?, encode: @escaping (T?) -> String?, decode: @escaping (String?) -> T?) -> UserDefault<T?> where T: Equatable {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
             getter: { userDefaults, key in
