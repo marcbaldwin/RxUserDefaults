@@ -61,7 +61,6 @@ public final class UserDefault<T>: Default<T> where T: Equatable {
 			.distinctUntilChanged()
 			.subscribe(onNext: { [unowned self] newValue in
 				guard !hasValue || newValue != getter(userDefaults, key) else { return }
-				print("『UserDefault set』key:\(key) value:\(newValue)")
 				setter(userDefaults, key, newValue)
 			}).disposed(by: disposeBag)
 	}
