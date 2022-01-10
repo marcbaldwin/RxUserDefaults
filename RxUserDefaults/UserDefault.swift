@@ -82,8 +82,8 @@ public final class UserDefault<T>: Default<T> where T: Equatable {
 	/// - Parameter obj: 对象
 	/// - Returns: self
 	public func deallocWith(_ obj: NSObject) -> Self {
-		var array = [UserDefault]()
-		if let oldArray = objc_getAssociatedObject(obj, &UserDefaultAssociatedArrayKey) as? [UserDefault] {
+		var array = [Any]()
+		if var oldArray = objc_getAssociatedObject(obj, &UserDefaultAssociatedArrayKey) as? [Any] {
 			array = oldArray
 		}
 		array.append(self)
