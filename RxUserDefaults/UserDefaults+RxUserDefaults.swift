@@ -40,6 +40,14 @@ extension UserDefaults {
         )
     }
 
+    public func stringArray(key: String, defaultValue: [String]) -> Default<[String]> {
+        return UserDefault(
+            key: key, defaultValue: defaultValue, userDefaults: self,
+            getter: { userDefaults, key in userDefaults.object(forKey: key) as? [String] ?? [] },
+            setter: { userDefaults, key, value in userDefaults.set(value, forKey: key) }
+        )
+    }
+
     public func type<T>(key: String, defaultValue: T, encode: @escaping (T) -> String, decode: @escaping (String) -> T) -> Default<T> {
         return UserDefault(
             key: key, defaultValue: defaultValue, userDefaults: self,
