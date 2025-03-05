@@ -42,3 +42,7 @@ Preview.html
 /fastlane/report.xml
 /fastlane/screenshots/screenshots.html
 /fastlane/screenshots/*/*.png
+
+# Bundle
+.bundle/
+vendor/
