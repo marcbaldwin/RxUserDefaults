@@ -1,3 +1,4 @@
+import Foundation
 import RxSwift
 
 public final class UserDefault<T>: Default<T> {

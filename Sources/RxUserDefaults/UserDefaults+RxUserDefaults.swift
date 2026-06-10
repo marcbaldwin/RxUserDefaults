@@ -1,3 +1,5 @@
+import Foundation
+
 extension UserDefaults {
 
     public func bool(key: String, defaultValue: Bool) -> Default<Bool> {
